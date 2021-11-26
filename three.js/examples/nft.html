@@ -98,8 +98,8 @@
 
         var arToolkitSource = new THREEx.ArToolkitSource({
             sourceType : 'webcam',
-            sourceWidth: 640,
-            sourceHeight: 480,
+            sourceWidth: 480,
+            sourceHeight: 640,
         })
 
         arToolkitSource.init(function onReady(){
@@ -134,11 +134,11 @@
         // create atToolkitContext
         var arToolkitContext = new THREEx.ArToolkitContext({
             detectionMode: 'mono',
-            canvasWidth: 640,
-            canvasHeight: 480,
+            canvasWidth: 480,
+            canvasHeight: 640,
         }, {
-            sourceWidth: 640,
-            sourceHeight: 480,
+            sourceWidth: 480,
+            sourceHeight: 640,
         })
 
         // initialize it
@@ -154,7 +154,7 @@
         // init controls for camera
         var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
             type : 'nft',
-            descriptorsUrl : 'data/desert/BarrenDesert-min',
+            descriptorsUrl : 'data/desert/BarrenDesert',
             changeMatrixMode: 'cameraTransformMatrix'
         })
 
@@ -170,9 +170,9 @@
         var threeGLTFLoader = new THREE.GLTFLoader();
         var model;
 
-        threeGLTFLoader.load("./resources/cube.glb", function (gltf) {
+        threeGLTFLoader.load("./resources/Flamingo.glb", function (gltf) {
             model = gltf.scene.children[0];
-            model.name = 'cube';
+            model.name = 'Flamingo';
 
             var animation = gltf.animations[0];
             var mixer = new THREE.AnimationMixer(model);
