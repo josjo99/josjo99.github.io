@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script src="../dist/mindar.js"></script>
+    <script>
+      const loadImage = async (src) => {
+        const img = new Image();
+        return new Promise((resolve, reject) => {
+          let img = new Image()
+          img.onload = () => resolve(img);
+          img.onerror = reject;
+          img.src = src; 
+        })
+      }
+
+      const process = async () => {
+        const inputWidth = 640;
+        const inputHeight = 480;
+
+        const controller = new MINDAR.Controller(inputWidth, inputHeight, (data) => {
+          console.log('controller on update', data);
+        });
+        const proj = controller.getProjectionMatrix();
+        console.log("projection matrix", proj);
+
+        //await controller.addImageTargets('../tests/card7cpu.mind');
+        await controller.addImageTargets('./assets/card-example/card.mind');
+
+        //const queryImage = await loadImage('../tests/card7_2.png');
+        const queryImage = await loadImage('./assets/card-example/card.png');
+        
+        const result = await controller.processImage(queryImage);
+      }
+      process();
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
