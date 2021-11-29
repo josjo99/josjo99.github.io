@@ -14,6 +14,7 @@
         const emailButton = document.querySelector("#email-button");
         const locationButton = document.querySelector("#location-button");
         const text = document.querySelector("#text");
+        const avatar = document.querySelector("#avatar");
 
         profileButton.setAttribute("visible", true);
         setTimeout(() => {
@@ -25,6 +26,7 @@
         setTimeout(() => {
           locationButton.setAttribute("visible", true);
         }, 900);
+
 
         let currentTab = '';
         webButton.addEventListener('click', function (evt) {
@@ -38,11 +40,14 @@
         profileButton.addEventListener('click', function (evt) {
           text.setAttribute("value", "AR, VR solutions and consultation");
           currentTab = 'profile';
+          avatar.setAttribute("scale", "0.002 0.002 0.002");
         });
         locationButton.addEventListener('click', function (evt) {
           console.log("loc");
           text.setAttribute("value", "Vancouver, Canada | Hong Kong");
           currentTab = 'location';
+          avatar.setAttribute("scale", "0.008 0.008 0.008");
+          console.log("clicked scale");
         });
 
         text.addEventListener('click', function (evt) {
@@ -50,6 +55,8 @@
             window.location.href="https://softmind.tech";
           }
         });
+
+
       }
 
       const showPortfolio = (done) => {
