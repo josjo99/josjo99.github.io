@@ -58,8 +58,8 @@
             console.log("target found");
             showAvatar(() => {
               setTimeout(() => {
-                showPortfolio(() => {    
-                });
+                // showPortfolio(() => {    uncomment this for video   
+                // });
               }, 300);
             });
           });
@@ -164,7 +164,7 @@
           <video id="paintandquest-video-mp4" autoplay="true" loop="true" src="./video.mp4"></video>
           <video id="paintandquest-video-webm" autoplay="true" loop="true" src="./video.webm"></video>
 
-          <a-asset-item id="avatarModel" src="./oasis model.gltf"></a-asset-item>
+          <a-asset-item id="avatarModel" src="./desert.gltf"></a-asset-item>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
@@ -173,7 +173,7 @@
         <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0" >
           <a-entity visible=false id="portfolio-panel" position="0 0 0">
             <a-entity id="portfolio-item0">
-              <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.552" position="0 0 0"></a-video>
+              <!-- <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.552" position="0 0 0"></a-video> uncomment this for video  -->
             </a-entity>
           </a-entity>
 <!-- right left top bottom -->
