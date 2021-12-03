@@ -8,66 +8,100 @@
 
     <script>
       const showPortfolio = (done) => {
+        console.log("In showPortf");
         const portfolio = document.querySelector("#portfolio-panel");
+        const testVideo = document.createElement( "video" );
+              const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
+              if (canplayWebm == "") {
+                console.log("cannot play webm");
+                document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
+                document.querySelector("#paintandquest-video-mp4").play();
+              } else {
+                console.log("Cand play webm");
+                document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-webm");
+                document.querySelector("#paintandquest-video-webm").play();
+              }
+              console.log("Portf set visible");
+              portfolio.setAttribute("visible", true);
+              portfolio.setAttribute("position", "-0.025 0.6 0.125");  //set rotation and position for the video here apply the y valye here if animation is nescessary
+          portfolio.setAttribute("rotation", "30 0 0");
+          console.log("portf position and rotation set");
         let y = 0;
         let currentItem = 0;
         const id = setInterval(() => {
           y += 0.008;
           if (y >= 0.6) {
             clearInterval(id);
-              const testVideo = document.createElement( "video" );
-              const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
-              if (canplayWebm == "") {
-                document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
-                document.querySelector("#paintandquest-video-mp4").play();
-              } else {
-                document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-webm");
-                document.querySelector("#paintandquest-video-webm").play();
-              }
-
-              portfolio.setAttribute("visible", true);
+            console.log("in id");
+              // const testVideo = document.createElement( "video" );
+              // const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
+              // if (canplayWebm == "") {
+              //   console.log("cannot play webm");
+              //   document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
+              //   document.querySelector("#paintandquest-video-mp4").play();
+              // } else {
+              //   console.log("Cand play webm");
+              //   document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-webm");
+              //   document.querySelector("#paintandquest-video-webm").play();
+              // }
+              // console.log("Portf set visible");
+              // portfolio.setAttribute("visible", true);
 
 
             setTimeout(() => {
               done();
-            }, 500);
+            }, 0);
           }
-          portfolio.setAttribute("position", "-0.025 0.6 0.125");  //set rotation and position for the video here apply the y valye here if animation is nescessary
-          portfolio.setAttribute("rotation", "30 0 0");
+          // portfolio.setAttribute("position", "-0.025 0.6 0.125");  //set rotation and position for the video here apply the y valye here if animation is nescessary
+          // portfolio.setAttribute("rotation", "30 0 0");
+          // console.log("portf position and rotation set");
 
         }, 10);
       }
 
       const showAvatar = (onDone) => {   //This is to give an animation feel to the model that is to be spwaned
+        console.log("In showAvat");
         const avatar = document.querySelector("#avatar");
         let z = -0.3;
-        const id = setInterval(() => { // this executes when interval of 10ms
-          z += 0.008;
-          if (z >= 0.3) {
-            clearInterval(id);
-            onDone();
-          }
-          avatar.setAttribute("position", "0 -0.25 0"); //give the z value here if animation feel is needed eg-(0 -0.25 z)
-          avatar.setAttribute("rotation", "90 0 0");
-        }, 10);
+        avatar.setAttribute("position", "0 -0.25 0"); //give the z value here if animation feel is needed eg-(0 -0.25 z)
+        avatar.setAttribute("rotation", "90 0 0"); // change X to 0
+        // const id = setInterval(() => { // this executes when interval of 10ms
+        //   z += 0.008;
+        //   if (z >= 0.3) {
+        //     clearInterval(id);
+        //     onDone();
+        //   }
+          // avatar.setAttribute("position", "0 -0.25 0"); //give the z value here if animation feel is needed eg-(0 -0.25 z)
+          // avatar.setAttribute("rotation", "90 0 0");
+        // }, 0);
       }
 
       AFRAME.registerComponent('mytarget', {
         init: function () {
           this.el.addEventListener('targetFound', event => {
             console.log("target found");
+            setTimeout(()=>{ 
+              showPortfolio(() => { 
+                  console.log("showportf");   
+              });
+            },3000);
+            
             showAvatar(() => {
-              setTimeout(() => {
-                showPortfolio(() => {    
-                });
-              }, 300);
+              console.log("showavat");
+              
             });
           });
           this.el.addEventListener('targetLost', event => {
-            console.log("target found");
+            console.log("target not found");
           });
         }
       });
+      
+      // setTimeout(() => {
+      //           showPortfolio(() => { 
+      //             console.log("showportf");   
+      //           });
+      //         }, 0);
     </script>
 
     <style>
@@ -158,7 +192,7 @@
 	</div>
       </div>
 
-      <a-scene mindar-image="imageTargetSrc: ./Bd.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-scene mindar-image="imageTargetSrc: ./bepanthen.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
           <img id="card" src="./Bd.png" />
           <video id="paintandquest-video-mp4" autoplay="true" loop="true" src="./video.mp4"></video>
