@@ -6,6 +6,8 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
     <script>
       const showPortfolio = (done) => {
         console.log("In showPortf");
@@ -84,7 +86,7 @@
               showPortfolio(() => { 
                   console.log("showportf");   
               });
-            },3000);
+            },11000);
             
             showAvatar(() => {
             });
@@ -192,11 +194,10 @@
 
       <a-scene mindar-image="imageTargetSrc: ./bepanthen.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
-          <img id="card" src="./Bd.png" />
+          <!-- <img id="card" src="./Bd.png" /> -->
           <video id="paintandquest-video-mp4" autoplay="true" loop="true" src="./video.mp4"></video>
           <video id="paintandquest-video-webm" autoplay="true" loop="true" src="./video.webm"></video>
-
-          <a-asset-item id="avatarModel" src="./desert.gltf"></a-asset-item>
+        <a-asset-item id="avatarModel" src="./animation.gltf"></a-asset-item>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
@@ -209,7 +210,7 @@
             </a-entity>
           </a-entity>
 <!-- right left top bottom -->
-          <a-gltf-model id="avatar" rotation="0 0 0" position="0 0 0" scale="0.004 0.004 0.004" src="#avatarModel"></a-gltf-model>
+          <a-gltf-model id="avatar" rotation="0 0 0" position="0 0 0" scale="0.004 0.004 0.004" src="#avatarModel" animation-mixer="loop:once; clampWhenFinished:true; duration: 15"></a-gltf-model>
           <a-entity light="type: directional; color: #FFF; intensity: 1.0" position="5 -0.25 5" rotation = "0 0 90"></a-entity>
           <a-entity light="type: directional; color: #FFF; intensity: 3.0" position="-5 -0.25 5" rotation = "0 0 90"></a-entity>
           <a-entity light="type: directional; color: #FFF; intensity: 3.0" position="-0.25 5 5" rotation = "0 0 90"></a-entity>  
