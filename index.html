@@ -4,7 +4,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="Cache-control" content="no-cache">
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> -->
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.0.0/dist/mindar-image-aframe.prod.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
@@ -26,8 +28,9 @@
               }
               console.log("Portf set visible");
               portfolio.setAttribute("visible", true);
-              portfolio.setAttribute("position", "-0.025 0.6 0.125");  //set rotation and position for the video here apply the y valye here if animation is nescessary
-          portfolio.setAttribute("rotation", "30 0 0");
+              //portfolio.setAttribute("position", "-0.025 0.6 0.125");  //set rotation and position for the video here apply the y valye here if animation is nescessary
+          portfolio.setAttribute("rotation", "0 0 0");
+          portfolio.setAttribute("position", "0 0 0");
           console.log("portf position and rotation set");
         let y = 0;
         let currentItem = 0;
@@ -87,10 +90,10 @@
               showPortfolio(() => { 
                   console.log("showportf");   
               });
-            },11000);
+            },0);
             
-            showAvatar(() => {
-            });
+            // showAvatar(() => {
+            // });
           });
           this.el.addEventListener('targetLost', event => {
             console.log("target not found");
@@ -197,7 +200,7 @@
         <a-assets>
           <!-- <img id="card" src="./Bd.png" /> -->
           <video id="paintandquest-video-mp4" autoplay="true" loop="true" src="./video.mp4"></video>
-          <video id="paintandquest-video-webm" autoplay="true" loop="true" src="./video.webm"></video>
+          <video id="paintandquest-video-webm" autoplay="true" loop="true" src="./transparent-video.webm" ></video>
         <a-asset-item id="avatarModel" src="./animation.gltf"></a-asset-item>
         </a-assets>
 
@@ -207,15 +210,15 @@
         <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0" >
           <a-entity visible=false id="portfolio-panel" position="0 0 0">
             <a-entity id="portfolio-item0">
-              <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.552" position="0 0 0"></a-video>
+              <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.552" position="0 0 0" ></a-video>
             </a-entity>
           </a-entity>
 <!-- right left top bottom -->
-          <a-gltf-model id="avatar" rotation="0 0 0" position="0 0 0" scale="0.004 0.004 0.004" src="#avatarModel" animation-mixer="loop:once; clampWhenFinished:true; duration: 15"></a-gltf-model>
+          <!-- <a-gltf-model id="avatar" rotation="0 0 0" position="0 0 0" scale="0.004 0.004 0.004" src="#avatarModel" animation-mixer="loop:once; clampWhenFinished:true; duration: 15"></a-gltf-model>
           <a-entity light="type: directional; color: #FFF; intensity: 1.0" position="5 -0.25 5" rotation = "0 0 90"></a-entity>
           <a-entity light="type: directional; color: #FFF; intensity: 3.0" position="-5 -0.25 5" rotation = "0 0 90"></a-entity>
           <a-entity light="type: directional; color: #FFF; intensity: 3.0" position="-0.25 5 5" rotation = "0 0 90"></a-entity>  
-          <a-entity light="type: directional; color: #FFF; intensity: 1.0" position="-0.25 -5 5" rotation = "0 0 90"></a-entity>
+          <a-entity light="type: directional; color: #FFF; intensity: 1.0" position="-0.25 -5 5" rotation = "0 0 90"></a-entity> -->
         </a-entity>
       </a-scene>
     </div>
