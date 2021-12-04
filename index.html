@@ -17,15 +17,15 @@
        // const portfolio = document.querySelector("#portfolio-panel");
         const testVideo = document.createElement( "video" );
               const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
-              if (canplayWebm == "") {
+              //if (canplayWebm == "") {
                 console.log("cannot play webm");
                 document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
                 document.querySelector("#paintandquest-video-mp4").play();
-              } else {
-                console.log("Cand play webm");
-                document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-webm");
-                document.querySelector("#paintandquest-video-webm").play();
-              }
+              // } else {
+              //   console.log("Cand play webm");
+              //   document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-webm");
+              //   document.querySelector("#paintandquest-video-webm").play();
+              // }
               console.log("Portf set visible");
              // portfolio.setAttribute("visible", true);
               //portfolio.setAttribute("position", "-0.025 0.6 0.125");  //set rotation and position for the video here apply the y valye here if animation is nescessary
@@ -199,7 +199,7 @@
       <a-scene mindar-image="imageTargetSrc: ./bepanthen.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
           <!-- <img id="card" src="./Bd.png" /> -->
-          <video id="paintandquest-video-mp4" autoplay="true" loop="true" src="./ad 1080.mp4"></video>
+          <video id="paintandquest-video-mp4" autoplay="true" loop="true" src="./out.mp4"></video>
           <video id="paintandquest-video-webm" autoplay="true" loop="true" src="./ad 1080.webm" ></video>
         <!-- <a-asset-item id="avatarModel" src="./animation.gltf"></a-asset-item> -->
         </a-assets>
