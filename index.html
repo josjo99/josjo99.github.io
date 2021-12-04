@@ -14,7 +14,7 @@
     <script>
       const showPortfolio = (done) => {
         console.log("In showPortf");
-        const portfolio = document.querySelector("#portfolio-panel");
+       // const portfolio = document.querySelector("#portfolio-panel");
         const testVideo = document.createElement( "video" );
               const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
               if (canplayWebm == "") {
@@ -27,10 +27,10 @@
                 document.querySelector("#paintandquest-video-webm").play();
               }
               console.log("Portf set visible");
-              portfolio.setAttribute("visible", true);
+             // portfolio.setAttribute("visible", true);
               //portfolio.setAttribute("position", "-0.025 0.6 0.125");  //set rotation and position for the video here apply the y valye here if animation is nescessary
-          portfolio.setAttribute("rotation", "0 0 0");
-          portfolio.setAttribute("position", "0 0 0");
+         // portfolio.setAttribute("rotation", "0 0 0");
+         // portfolio.setAttribute("position", "0 0 0");
           console.log("portf position and rotation set");
         let y = 0;
         let currentItem = 0;
@@ -199,20 +199,20 @@
       <a-scene mindar-image="imageTargetSrc: ./bepanthen.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
           <!-- <img id="card" src="./Bd.png" /> -->
-          <video id="paintandquest-video-mp4" autoplay="true" loop="true" src="./video.mp4"></video>
-          <video id="paintandquest-video-webm" autoplay="true" loop="true" src="./transparent-video.webm" ></video>
-        <a-asset-item id="avatarModel" src="./animation.gltf"></a-asset-item>
+          <video id="paintandquest-video-mp4" autoplay="true" loop="true" src="./ad 1080.mp4"></video>
+          <video id="paintandquest-video-webm" autoplay="true" loop="true" src="./ad 1080.webm" ></video>
+        <!-- <a-asset-item id="avatarModel" src="./animation.gltf"></a-asset-item> -->
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
         </a-camera>
 
         <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0" >
-          <a-entity visible=false id="portfolio-panel" position="0 0 0">
-            <a-entity id="portfolio-item0">
+          <!-- <a-entity visible=false id="portfolio-panel" position="0 0 0"> -->
+            <!-- <a-entity id="portfolio-item0"> -->
               <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.552" position="0 0 0" ></a-video>
-            </a-entity>
-          </a-entity>
+            <!-- </a-entity> -->
+          <!-- </a-entity> -->
 <!-- right left top bottom -->
           <!-- <a-gltf-model id="avatar" rotation="0 0 0" position="0 0 0" scale="0.004 0.004 0.004" src="#avatarModel" animation-mixer="loop:once; clampWhenFinished:true; duration: 15"></a-gltf-model>
           <a-entity light="type: directional; color: #FFF; intensity: 1.0" position="5 -0.25 5" rotation = "0 0 90"></a-entity>
